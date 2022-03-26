@@ -99,6 +99,7 @@ public class Utils {
 
             String path = "<img src=\"data:image/png;base64, " + encodedString + "\" width=\"auto\" height=\"auto\" />";
             Reporter.log(path);
+            System.out.println("Path : "+screenshotLocation.getAbsolutePath());
         } catch (IOException e) {
             e.printStackTrace();
         }
