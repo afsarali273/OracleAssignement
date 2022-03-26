@@ -25,6 +25,8 @@ jobs:
         ls -lrt
         cd ./deployment
         ls -lrt
+
     - name: Build the Docker image
-      run: docker build --tag automation-test-image .
+      run: ls -lrt
+    - run: docker build --tag automation-test-image .
     - run: docker run automation-test-image
