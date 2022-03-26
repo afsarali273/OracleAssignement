@@ -21,8 +21,11 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn clean package
+    - run: |
+        ls -lrt
+        cd ./deployment
 
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build . --file ./deployment/Dockerfile --tag automation-test-image
+      run: docker build --tag automation-test-image .
     - run: docker run automation-test-image
