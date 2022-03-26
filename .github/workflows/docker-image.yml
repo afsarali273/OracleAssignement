@@ -27,3 +27,10 @@ jobs:
         docker build  --tag automation-test-image .
     - name: Run UI Tests
       run: docker run automation-test-image
+    - run: ls -lrt
+
+    - name: Test Reports
+      uses: actions/upload-artifact@v2
+      with:
+        name: htmlreports
+        path: ./deployment/test-output
