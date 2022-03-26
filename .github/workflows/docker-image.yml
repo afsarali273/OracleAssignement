@@ -33,10 +33,10 @@ jobs:
       with:
         time: '30s'
 
-    - run: ls ./deployment -lrt
+    - run: ls -lrt
 
     - name: Test Reports
       uses: actions/upload-artifact@v3
       with:
         name: htmlreports
-        path: ./deployment/test-output
+        path: ./test-output
