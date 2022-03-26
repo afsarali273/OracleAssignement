@@ -27,6 +27,12 @@ jobs:
         docker build  --tag automation-test-image .
     - name: Run UI Tests
       run: docker run automation-test-image
+
+    - name: Sleep for 30 seconds
+      uses: jakejarvis/wait-action@master
+      with:
+        time: '30s'
+
     - run: ls ./deployment -lrt
 
     - name: Test Reports
