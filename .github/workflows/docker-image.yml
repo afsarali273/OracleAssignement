@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Selenium UI Tests
 
 on:
   push:
@@ -22,9 +22,8 @@ jobs:
     - name: Build with Maven
       run: mvn clean package
     - name: Build the Docker image
-      run: ls ./deployment -lrt
-    - run: |
+      run: |
         cd ./deployment
-        ls -lrt
         docker build  --tag automation-test-image .
-    - run: docker run automation-test-image
+    - name: Run UI Tests
+      run: docker run automation-test-image
