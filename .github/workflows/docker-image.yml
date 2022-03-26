@@ -23,6 +23,5 @@ jobs:
 
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: |
-      docker build . --file ./deployment/Dockerfile --tag automation-test-image
-      docker run automation-test-image
+      run: docker build . --file ./deployment/Dockerfile --tag automation-test-image
+    - run: docker run automation-test-image
