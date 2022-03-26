@@ -23,5 +23,8 @@ jobs:
       run: mvn clean package
     - name: Build the Docker image
       run: ls ./deployment -lrt
-    - run: docker build -f ./deployment/Dockerfile --tag automation-test-image .
+    - run: |
+        cd ./deployment
+        ls -lrt
+        docker build  --tag automation-test-image .
     - run: docker run automation-test-image
