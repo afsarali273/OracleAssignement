@@ -10,7 +10,7 @@ jobs:
 
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
     - uses: actions/checkout@v2
     - name: Set up JDK 8
@@ -34,6 +34,7 @@ jobs:
         time: '30s'
 
     - run: ls -lrt
+    - run: ls ./deployment -lrt
 
     - name: Test Reports
       uses: actions/upload-artifact@v3
