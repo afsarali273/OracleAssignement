@@ -24,6 +24,7 @@ jobs:
     - run: |
         ls -lrt
         cd ./deployment
+        ls -lrt
 
     - uses: actions/checkout@v2
     - name: Build the Docker image
