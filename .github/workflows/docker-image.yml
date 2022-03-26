@@ -35,10 +35,10 @@ jobs:
 
     - run: ls -lrt
     - run: ls ./deployment -lrt
-    - run: ls ./artifacts -lrt
+    - run: ls ./deployment/artifacts -lrt
 
     - name: Test Reports
       uses: actions/upload-artifact@v3
       with:
         name: htmlreports
-        path: ./artifacts
+        path: ./deployment/artifacts
