@@ -25,11 +25,14 @@ jobs:
       run: |
         cd ./deployment
         docker build  --tag automation-test-image .
+#        docker volume create testVolume
     - name: Run UI Tests
-      run: docker run automation-test-image
-
+      run: |
+        mkdir ./deployment/test-output
+        docker run --name uitest -v "$(pwd)"/deployment/test-output:/test-output automation-test-image
     - run: ls -lrt
     - run: ls ./deployment -lrt
+    - run: ls ./deployment/test-output -lrt
 
     - name: Test Reports
       uses: actions/upload-artifact@v3
